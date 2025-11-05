@@ -125,10 +125,7 @@ export default function ProfilePage() {
               </button>
             )}
 
-            <button
-              onClick={handleLogout}
-              className="bg-red-500 text-white py-2 px-6 rounded-xl hover:bg-red-600 transition-all"
-            >
+           
               
             </button>
           </div>
