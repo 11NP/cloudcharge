@@ -18,7 +18,7 @@ export default function RegisterPage() {
     e.preventDefault();
 
     try {
-      const res = await axios.post("http://localhost:5000/api/users/register", form);
+      const res = await axios.post("https://cloudcharge-backend.onrender.com/api/users/register", form);
       setMessage("✅ Registration successful! Redirecting...");
       setTimeout(() => navigate("/login"), 1500);
     } catch {

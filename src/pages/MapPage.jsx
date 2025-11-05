@@ -28,7 +28,7 @@ export default function MapPage() {
 
   useEffect(() => {
     axios
-      .get("http://localhost:5000/api/stations")
+      .get("https://cloudcharge-backend.onrender.com/api/stations")
       .then((res) => setStations(res.data))
       .catch((err) => console.error("Error fetching stations:", err));
   }, []);

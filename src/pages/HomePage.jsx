@@ -75,7 +75,7 @@ export default function HomePage() {
 
   useEffect(() => {
     axios
-      .get("http://localhost:5000/api/stations")
+      .get("https://cloudcharge-backend.onrender.com/api/stations")
       .then((res) => setStations(res.data || []))
       .catch((err) => console.error("Failed to fetch stations", err));
 

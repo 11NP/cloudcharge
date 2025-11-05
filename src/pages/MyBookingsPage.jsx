@@ -55,7 +55,7 @@ export default function MyBookingsPage() {
   const fetchBookings = async () => {
     if (!user?._id) return;
     try {
-      const res = await axios.get(`http://localhost:5000/api/bookings/user/${user._id}`);
+      const res = await axios.get(`https://cloudcharge-backend.onrender.com/api/bookings/user/${user._id}`);
       setBookings(res.data);
     } catch (err) {
       console.error("Error fetching bookings:", err);
@@ -70,7 +70,7 @@ export default function MyBookingsPage() {
   const handleCancel = async (bookingId) => {
     if (!window.confirm("Are you sure you want to cancel this booking?")) return;
     try {
-      const res = await axios.delete(`http://localhost:5000/api/bookings/${bookingId}`);
+      const res = await axios.delete(`https://cloudcharge-backend.onrender.com/api/bookings/${bookingId}`);
       if (res.status === 200) {
         setMessage("Booking cancelled successfully.");
         await fetchBookings(); // 🔁 refresh to show it in history

@@ -65,7 +65,7 @@ export default function MySwapsPage() {
   const fetchSwaps = async () => {
     if (!user?._id) return;
     try {
-      const res = await axios.get(`http://localhost:5000/api/swaps/user/${user._id}`);
+      const res = await axios.get(`https://cloudcharge-backend.onrender.com/api/swaps/user/${user._id}`);
       setSwaps(res.data);
       const active = res.data.find((s) => s.status === "Active");
       setActiveSwap(active || null);
@@ -78,7 +78,7 @@ export default function MySwapsPage() {
   // Fetch stations
   const fetchStations = async () => {
     try {
-      const res = await axios.get("http://localhost:5000/api/stations");
+      const res = await axios.get("https://cloudcharge-backend.onrender.com/api/stations");
       setStations(res.data || []);
     } catch (err) {
       console.error("Error fetching stations:", err);
@@ -91,7 +91,7 @@ export default function MySwapsPage() {
     setIsProcessing(true);
     try {
       const res = await axios.put(
-        `http://localhost:5000/api/swaps/${activeSwap._id}/deposit`,
+        `https://cloudcharge-backend.onrender.com/api/swaps/${activeSwap._id}/deposit`,
         { destinationStation: stationId }
       );
       if (res.status === 200) {

@@ -18,7 +18,7 @@ export default function LoginPage() {
     e.preventDefault();
 
     try {
-      const res = await axios.post("http://localhost:5000/api/users/login", form);
+      const res = await axios.post("https://cloudcharge-backend.onrender.com/api/users/login", form);
       localStorage.setItem("token", res.data.token);
       localStorage.setItem("user", JSON.stringify({
         _id: res.data._id,

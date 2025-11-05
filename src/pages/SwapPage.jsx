@@ -63,7 +63,7 @@ export default function SwapPage() {
 
   const fetchStations = async () => {
     try {
-      const res = await axios.get("http://localhost:5000/api/stations");
+      const res = await axios.get("https://cloudcharge-backend.onrender.com/api/stations");
       setStations(res.data || []);
     } catch (e) {
       console.error("Error fetching stations:", e);
@@ -72,7 +72,7 @@ export default function SwapPage() {
 
   const fetchActiveSwap = async () => {
     try {
-      const res = await axios.get(`http://localhost:5000/api/swaps/active/${user?._id}`);
+      const res = await axios.get(`https://cloudcharge-backend.onrender.com/api/swaps/active/${user?._id}`);
       setActiveSwap(res.data || null);
     } catch {
       setActiveSwap(null);
@@ -81,7 +81,7 @@ export default function SwapPage() {
 
   const fetchSwapHistory = async () => {
     try {
-      const res = await axios.get(`http://localhost:5000/api/swaps/user/${user?._id}`);
+      const res = await axios.get(`https://cloudcharge-backend.onrender.com/api/swaps/user/${user?._id}`);
       setSwapHistory(res.data || []);
     } catch (err) {
       console.error("Failed to fetch swap history:", err);
@@ -136,7 +136,7 @@ export default function SwapPage() {
     if (isProcessing || activeSwap) return;
     setIsProcessing(true);
     try {
-      const res = await axios.post("http://localhost:5000/api/swaps", {
+      const res = await axios.post("https://cloudcharge-backend.onrender.com/api/swaps", {
         userId: user?._id,
         sourceStation: stationId,
       });
@@ -159,7 +159,7 @@ export default function SwapPage() {
     if (!window.confirm("Are you sure you want to cancel this battery swap?")) return;
     setIsProcessing(true);
     try {
-      const res = await axios.patch(`http://localhost:5000/api/swaps/${activeSwap._id}/cancel`);
+      const res = await axios.patch(`https://cloudcharge-backend.onrender.com/api/swaps/${activeSwap._id}/cancel`);
       if (res.status === 200) {
         alert("❌ Swap cancelled successfully.");
         setActiveSwap(null);

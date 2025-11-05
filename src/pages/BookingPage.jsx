@@ -67,7 +67,7 @@ export default function BookingPage() {
 
   const fetchStations = async () => {
     try {
-      const res = await axios.get("http://localhost:5000/api/stations");
+      const res = await axios.get("https://cloudcharge-backend.onrender.com/api/stations");
       setStations(res.data || []);
     } catch (e) {
       console.error("Error fetching stations:", e);
@@ -163,7 +163,7 @@ export default function BookingPage() {
         return;
       }
 
-      const res = await axios.post("http://localhost:5000/api/bookings", {
+      const res = await axios.post("https://cloudcharge-backend.onrender.com/api/bookings", {
         userId: user?._id,
         stationId: stationObj._id,
         startTime,
